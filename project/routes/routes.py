@@ -53,6 +53,12 @@ def weather():
 
     return render_template("weather.html", labels = labels, data=data)
 
+@home.route('/graphwindow')
+def graphwindow():
+
+    return render_template('graph_window.html')
+
+
 @home.route('/')
 def home_view():
     # request = requests.get('http://api.open-notify.org')

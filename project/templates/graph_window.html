@@ -8,6 +8,66 @@
     <title>Document</title>
 </head>
 <body>
-    <iframe src="http://localhost:8070/dash" style="border-style: none;" width=600 height=800></iframe>
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<script>
+  var day = [
+      // { x: Date.parse('2022-09-25 00:00:00 GMT+0800'), y: 10 },
+      // { x: Date.parse('2022-09-26 00:00:00 GMT+0800'), y: 8 },
+      // { x: Date.parse('2022-09-27 00:00:00 GMT+0800'), y: 13 },
+      { x: Date.parse('2022-09-25 00:00:00'), y: 10 },
+      { x: Date.parse('2022-09-26 14:00:00'), y: 8 },
+      { x: Date.parse('2022-09-27 00:00:00'), y: 13 },
+  ];
+
+  // var labels = [
+  //   'January',
+  //   'February',
+  //   'March',
+  //   'April',
+  //   'May',
+  //   'June',
+  // ];
+
+  var data = {
+    // labels: labels,
+    datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: day
+    }]
+  };
+
+  var config = {
+    type: 'line',
+    data: data,
+    options: {
+        scales:{
+            x: {
+              type: 'time',
+              time: {
+                  unit: 'day'
+              }
+            },
+            y: {
+                beginAtZero: true
+            }
+        }
+
+    }
+  };
+</script>
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
+
 </body>
 </html>
